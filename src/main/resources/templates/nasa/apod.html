@@ -58,7 +58,17 @@
     <h4><span th:class="title-details" th:text="${apod.explanation}"></span></h4>
 
     <div class="mx-auto mb-4" style="max-width: 80%;">
-        <img th:src="${apod.hdurl}" class="img-fluid" alt="Image">
+        <img th:if="${apod.hdurl != null and !apod.hdurl.isEmpty()}" 
+             th:src="${apod.hdurl}" 
+             th:attr="onerror=|this.onerror=null; this.src='${apod.url}';|"
+             class="img-fluid" 
+             alt="Astronomy Picture of the Day"
+             style="max-width: 100%; height: auto; border-radius: 8px;">
+        <img th:unless="${apod.hdurl != null and !apod.hdurl.isEmpty()}" 
+             th:src="${apod.url}" 
+             class="img-fluid" 
+             alt="Astronomy Picture of the Day"
+             style="max-width: 100%; height: auto; border-radius: 8px;">
     </div>
 
 </div>
