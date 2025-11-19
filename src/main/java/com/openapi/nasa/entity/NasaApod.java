@@ -9,49 +9,44 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="apod")
+@Table(name = "apod")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class NasaApod 
-{
-	@Id 
-	@GeneratedValue (strategy =GenerationType.IDENTITY)
-	@Column(name="id")
-	private int id ;
-	
-	
-	@Size(min=1 , message ="is required")
-	@Column(name ="copyright")
-	private String copyright;
-	
+public class NasaApod {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private int id;
 
-	@NotNull(message="is required")
-	@Size(min=1,message="is required")
-	@Column(name ="date")
+	@Size(min = 1, message = "is required")
+	@Column(name = "copyright")
+	private String copyright;
+
+	@NotNull(message = "is required")
+	@Size(min = 1, message = "is required")
+	@Column(name = "date")
 	private String date;
-	
-	
-	@Column(columnDefinition="Text")
+
+	@Column(columnDefinition = "Text")
 	@Lob
-	@NotNull(message="is required")
-	@Size(min=1,message=" is required")
+	@NotNull(message = "is required")
+	@Size(min = 1, message = " is required")
 	private String explanation;
-	
-	@NotNull(message=" is required")
-	@Size(min=1,message="is required")
-	@Column(name ="hdurl")
-	private String  hdurl;
-	
-	
-	@Size(min=1,message=" is required")
-	@NotNull(message="is required")
-	@Column(name ="title")
-	private String title ;
-	
-	@NotNull(message="is required")
-	@Size(min=1,message="is required")
-	@Column(name ="url")
+
+	@NotNull(message = " is required")
+	@Size(min = 1, message = "is required")
+	@Column(name = "hdurl")
+	private String hdurl;
+
+	@Size(min = 1, message = " is required")
+	@NotNull(message = "is required")
+	@Column(name = "title")
+	private String title;
+
+	@NotNull(message = "is required")
+	@Size(min = 1, message = "is required")
+	@Column(name = "url")
 	private String url;
 
 	public int getId() {
@@ -115,10 +110,5 @@ public class NasaApod
 		return "NasaApod [id=" + id + ", copyright=" + copyright + ", date=" + date + ", explanation=" + explanation
 				+ ", hdurl=" + hdurl + ", title=" + title + ", url=" + url + "]";
 	}
-	
-	
-	
-	
-	
 
 }
